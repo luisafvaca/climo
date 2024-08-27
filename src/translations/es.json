@@ -1,0 +1,9 @@
+{
+    "welcomeMessage": "Bienvenido a Clim.",
+    "welcomeGoal": "Predicciones instantaneas. ¡Mantente actualizado con el clima!",
+    "email": "Correo",
+    "emailDisclaimer": "Escribe tu correo",
+    "password": "Contraseña",
+    "passwordDisclaimer": "Escribe tu contraseña",
+    "createAccountDisclaimer": "O crea una cuenta"
+}

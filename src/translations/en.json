@@ -1,0 +1,9 @@
+{
+    "welcomeMessage": "Welcome to Clim.",
+    "welcomeGoal": "Instant forecasts. Stay ahead of the weather!",
+    "email": "Email",
+    "emailDisclaimer": "Type your email",
+    "password": "Password",
+    "passwordDisclaimer": "Type your password",
+    "createAccountDisclaimer": "Or create an account"
+}
