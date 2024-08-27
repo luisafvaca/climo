@@ -1,4 +1,4 @@
-import climLogo from 'src/assets/climLogo.svg'
+import climLogo from '@/assets/climLogo.svg'
 
 function NavBar() {
   return (
