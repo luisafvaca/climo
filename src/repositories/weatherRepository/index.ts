@@ -11,7 +11,12 @@ export default class WeatherRepository {
   }
 
   async getWeatherByCity(lat: number, long: number): Promise<WeatherType> {
-      const response = await axios.get(`${this.apiUrlBase}?lat=${lat}&lon=${long}&appid=${this.apiKey}&units=metric`)
-      return response.data
+    const response = await axios.get(`${this.apiUrlBase}/weather?lat=${lat}&lon=${long}&appid=${this.apiKey}&units=metric`)
+    return response.data
+  }
+
+  async getWeatherForecast(lat: number, long: number): Promise<WeatherType> {
+    const response = await axios.get(`${this.apiUrlBase}/forecast?lat=${lat}&lon=${long}&appid=${this.apiKey}&units=metric`)
+    return response.data
   }
 }
