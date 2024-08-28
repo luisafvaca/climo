@@ -26,7 +26,7 @@ function Hero (
 
     return (
       <section 
-        className="hero w-full flex flex-col items-center font-sans p-22 bg-cover bg-center bg-no-repeat relative"
+        className="hero w-full flex flex-col items-center font-sans p-22 bg-cover bg-center bg-no-repeat relative rounded-lg"
         style={{ backgroundImage: `url(/public/statics/${image})`}}>
         <p className='absolute flex items-center right-9 top-1'>
           <img className="h-32" src={`${icon}`} alt="thuderstorm" />

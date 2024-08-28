@@ -1,0 +1,9 @@
+.day-forecast {
+  background: linear-gradient(#449FC3, #093D51);
+  min-height: 162px;
+}
+
+.hour-forecast {
+  /* border: 1px solid blue; */
+  box-shadow: 6px 1px 17px #12495f;
+}

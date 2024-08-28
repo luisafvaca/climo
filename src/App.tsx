@@ -13,7 +13,6 @@ function App() {
       <p className='font-lato text-center text-16 md:text-16 text-scarpa mb-lg'>{t('welcomeGoal')}</p> */}
       {/* <SingIn /> */}
       <Dashboard />
-
     </>
   )
 }
