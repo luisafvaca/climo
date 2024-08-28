@@ -25,7 +25,7 @@ function DayForecast({dailySummaryForecast}: DayForecastProps) {
     <section className="day-forecast mt-16 py-16 px-18 rounded-lg font-sans text-white">
       <h2 className='text-14'>{t("dayForecastTitle")}</h2>
       <p className='text-12 font-lato'>{t("dayForecastDescription")}</p>
-      <div className='flex gap-16 mt-24'>{predictions}</div>
+      <div className='flex gap-3 mt-24'>{predictions}</div>
     </section>
   );
 }
