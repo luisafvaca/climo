@@ -1,6 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import thuderstormImage from '@/assets/statics/2xx.png'
-
 
 interface HeroProps {
   city: string;
@@ -9,9 +7,8 @@ interface HeroProps {
   minTemperature: string;
   maxTemperature: string;
   icon?: string;
+  image: string;
 }
-
-//React.FC<Props>
 
 function Hero (
     {
@@ -20,16 +17,17 @@ function Hero (
       weatherDescription,
       minTemperature,
       maxTemperature,
-      icon
+      icon,
+      image
     }: HeroProps
   ) {
 
     const { t } = useTranslation();
 
     return (
-    <section 
-      className="hero w-full flex flex-col items-center font-sans p-22 bg-cover relative"
-      style={{backgroundImage: `url(${thuderstormImage})`}}>
+      <section 
+        className="hero w-full flex flex-col items-center font-sans p-22 bg-cover bg-center bg-no-repeat relative"
+        style={{ backgroundImage: `url(/public/statics/${image})`}}>
         <p className='absolute flex items-center right-9 top-1'>
           <img className="h-32" src={`${icon}`} alt="thuderstorm" />
           <span className='font-medium text-white'>°C</span>
@@ -38,8 +36,8 @@ function Hero (
         <p className="text-64 md:text-96">{temperature}</p>
         <p className="text-20 md:text-32">{weatherDescription}</p>
         <p className="text-16 md:text-24 pt-36"><span>{t('max')} {minTemperature} </span> | <span> {t('max')} {maxTemperature}</span></p>
-    </section>
-  )
+      </section>
+    )
 }
 
 export default Hero

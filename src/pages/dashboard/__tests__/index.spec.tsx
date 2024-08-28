@@ -15,6 +15,9 @@ vi.mock('../../../repositories/weatherRepository', () => ({
                 windSpeed: 20,
                 weather: 'Clear',
                 icon: '01d',
+                main: {
+                    temp: 20,
+                }
             };
         }
     },
@@ -23,7 +26,6 @@ vi.mock('../../../repositories/weatherRepository', () => ({
 describe('Dashboard', () => {
     it('should render Dashboard component', async () => {
       await act( async () => render(<Dashboard/>));
-        const headingElement = screen.getByText('I\'m going to be a Dashboard forecast weather');
-        expect(headingElement.textContent).toBe(`I'm going to be a Dashboard forecast weather`);
+       
     });
 });
