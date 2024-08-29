@@ -1,11 +1,9 @@
 import './App.css'
-import { useTranslation } from 'react-i18next';
 // import SingIn from './pages/signIn';
 import NavBar from './components/navBar';
 import Dashboard from './pages/dashboard';
 
 function App() {
-  const { t } = useTranslation();
   return (
     <>
       <NavBar />

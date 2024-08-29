@@ -3,7 +3,12 @@
   min-height: 162px;
 }
 
+.hour-forecast-container {
+  overflow: scroll;
+  scroll-snap-type: x proximity;
+  flex-wrap: nowrap;
+}
 .hour-forecast {
-  /* border: 1px solid blue; */
   box-shadow: 6px 1px 17px #12495f;
+  min-width: 100px;
 }
