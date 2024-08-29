@@ -4,6 +4,7 @@ import WeatherRepository from '../../repositories/weatherRepository';
 import type { WeatherByCityType,  WeatherForecast, List } from '../../repositories/weatherRepository/types';
 import Hero from '../../components/hero';
 import DayForecast from '../..//components/dayForecast';
+import WeekForecast from '../../components/weekForecast';
 import resolveImage from '../../utils/resolveImage';
 import { getDayForecast, getNextDaysForecast } from '../../utils/forecast';
 
@@ -15,7 +16,7 @@ function Dashboard() {
   const [weather, setWeather] = useState<WeatherByCityType|null>(null)
   const [weatherCode, setWeatherCode] = useState<number>(0)
   const [weatherForecast, setWeatherForecast] = useState<WeatherForecast|null>(null)
-  const [dailySummaryForecast, setDailySummaryForecast] = useState<WeatherForecast|null>(null)
+  const [dailySummaryForecast, setDailySummaryForecast] = useState<List|null>(null)
   const [weekSummaryForecast, setWeekSummaryForecast] = useState<List|null>(null)
 
   const { t } = useTranslation();
@@ -44,7 +45,6 @@ function Dashboard() {
     }
   }, [weather, weatherRepository]);
 
-  console.log(dailySummaryForecast)
   const image = resolveImage(weatherCode)
 
   return (
@@ -54,14 +54,15 @@ function Dashboard() {
           city={t(`${weather.name}`)}
           temperature={`${Math.trunc(weather.main.temp)}º`}
           weatherDescription={t(`${weatherCode}`)}
-          minTemperature={`${Math.trunc(weather.main.temp_max)}º`}
-          maxTemperature={`${Math.trunc(weather.main.temp_min)}º`}
+          minTemperature={`${Math.trunc(weather.main.temp_min)}º`}
+          maxTemperature={`${Math.trunc(weather.main.temp_max)}º`}
           image={image}
           icon={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
         />
       )}
       <div>
         <DayForecast dailySummaryForecast={dailySummaryForecast}/>
+        <WeekForecast weekSummaryForecast={weekSummaryForecast}/>
       </div>
     </div>
   )
