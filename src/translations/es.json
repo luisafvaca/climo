@@ -61,9 +61,18 @@
 	"800": "Cielo despejado",
 	"801": "Algunas nubes",
 	"802": "Nubes dispersas",
-	"803": "Nubes rotas",
+	"803": "Cielo nuboso",
 	"804": "Nublado",
 	"900": "Tornado",
 	"dayForecastTitle": "Pronósticos diarios",
-	"dayForecastDescription": "¡Resumen del tiempo diario, perfecto para planificar tu día!"
+	"dayForecastDescription": "¡Resumen del tiempo diario, perfecto para planificar tu día!",
+	"day0": "Domingo",
+	"day1": "Lunes",
+	"day2": "Martes",
+	"day3": "Miércoles",
+	"day4": "Jueves",
+	"day5": "Viernes",
+	"day6": "Sábado",
+	"tomorrow": "Mañana",
+	"now": "Ahora:"
 }

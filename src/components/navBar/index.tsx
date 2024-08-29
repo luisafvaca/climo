@@ -12,18 +12,22 @@ function NavBar() {
   }
 
   return (
-    <>
-      <nav className='flex justify-between h-32 m-24'>
-        <img src={climLogo} className="logo" alt="Vite logo" />
-        <div
-          className='flex gap-2 items-center cursor-pointer'
-          onClick={changeLanguage}
-         >
-          <p className='text-12'>{currentLanguage.toUpperCase()}</p>
-          <img className="icon"  src={'./public/translateIcon.svg'} alt="Vite logo" />
-        </div>
-      </nav>
-    </>
+    <nav className='flex justify-between h-32 m-24'>
+      <img 
+        src={climLogo} 
+        className="logo" 
+        alt="Vite logo" />
+      <div
+        className='flex gap-2 items-center cursor-pointer'
+        onClick={changeLanguage}
+        >
+        <p className='text-12'>{currentLanguage.toUpperCase()}</p>
+        <img 
+          className="icon" 
+          src={'./public/translateIcon.svg'} 
+          alt="translation icon" />
+      </div>
+    </nav>
   )
 }
 
