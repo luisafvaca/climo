@@ -1,8 +1,10 @@
 import { useTranslation } from 'react-i18next';
+import type { WeatherForecast } from '../../repositories/weatherRepository/types';
+
 import './index.css';
 
 interface DayForecastProps {
-  dailySummaryForecast: any;
+  dailySummaryForecast: WeatherForecast
 }
 
 function DayForecast({dailySummaryForecast}: DayForecastProps) {
@@ -13,19 +15,19 @@ function DayForecast({dailySummaryForecast}: DayForecastProps) {
     const time = `${hour} ${isTime}`;
 
     return (
-      <div className='hour-forecast flex flex-col items-center p-10 rounded-md'>
-        <p className='text-20'>{time}</p>
+      <div key={item.dt} className='hour-forecast flex flex-col items-center p-10 rounded-md'>
+        <p className='text-18 md-text-20'>{time}</p>
         <img className="h-40" src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`} alt="thuderstorm" />
-        <p className='text-20'>{`${Math.trunc(item.main.temp)}º`}</p>
-        <p className='text-10'key={item.dt}>{item.weather[0].description}</p>
+        <p className='text-18 md:text-20'>{`${Math.trunc(item.main.temp)}º`}</p>
+        <p className='text-10 w-max'key={item.dt}>{ t(`${item.weather[0].id}`)}</p>
       </div>
     )
   })
   return (
-    <section className="day-forecast mt-16 py-16 px-18 rounded-lg font-sans text-white">
+    <section className="day-forecast mt-16 lg:m-0 py-16 px-18 rounded-lg font-sans text-white">
       <h2 className='text-14'>{t("dayForecastTitle")}</h2>
       <p className='text-12 font-lato'>{t("dayForecastDescription")}</p>
-      <div className='flex gap-3 mt-24'>{predictions}</div>
+      <div className='hour-forecast-container flex gap-3 mt-24'>{predictions}</div>
     </section>
   );
 }

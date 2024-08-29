@@ -93,6 +93,7 @@ export default {
         '46': '4.6rem',
         '48': '4.8rem',
         '60': '6rem',
+        '64': '6.4rem',
       },
       colors: {
         'scarpa': '#585360'

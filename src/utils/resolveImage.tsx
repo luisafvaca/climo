@@ -1,4 +1,4 @@
-export default function(weatherCode: number ) {
+export default function resolveImage (weatherCode: number ) {
   switch (true) {
     case(weatherCode >= 200 && weatherCode < 300):
       return '2xx.png'
