@@ -22,7 +22,7 @@ function WeekForecast({weekSummaryForecast}) {
 
   return (
     <section className='week-forecast mt-16 py-16 px-18 rounded-lg font-sans text-white'>
-      <h1 className='text-16'>Week Forecast</h1>
+      <h1 className='text-16 mb-16'>{t('weekForecast')}</h1>
       {dailySummaryForecast}
     </section>
   )

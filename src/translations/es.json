@@ -74,5 +74,6 @@
 	"day5": "Viernes",
 	"day6": "Sábado",
 	"tomorrow": "Mañana",
-	"now": "Ahora:"
+	"now": "Ahora",
+	"weekForecast": "Pronostico semanal"
 }
