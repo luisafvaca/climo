@@ -74,5 +74,6 @@
   "day5": "Friday",
   "day6": "Saturday",
   "tomorrow": "Tomorrow",
-  "now": "Now:"
+  "now": "Now",
+  "weekForecast": "Week Forecast"
 }

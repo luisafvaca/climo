@@ -1,17 +1,17 @@
 {
-  "londres": {
+  "london": {
     "lat": 51.509865,
     "long": -0.118092,
-    "value": "Londres"
+    "value": "london"
   },
   "toronto": {
     "lat": 43.70011,
     "long": -79.4163,
-    "value": "Toronto"
+    "value": "toronto"
   },
   "singapur": {
     "lat": 1.287953,
     "long": 103.851784,
-    "value": "Singapur"
+    "value": "singapur"
   }
 }
