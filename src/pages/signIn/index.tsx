@@ -8,7 +8,7 @@ import './index.css'
 
 function SingIn() {
   const { t } = useTranslation();
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleNavigateToDashboard = () => {
     navigate('/dashboard', { replace: true });

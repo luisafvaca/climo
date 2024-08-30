@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next';
 import WeatherRepository from '../../repositories/weatherRepository';
 import type { WeatherByCityType,  WeatherForecast, List } from '../../repositories/weatherRepository/types';
@@ -14,7 +14,12 @@ function Dashboard() {
   const apiKey = import.meta.env.VITE_API_KEY_WEATHER_MAP
   const apiUrl = import.meta.env.VITE_BASE_URL_WEATHER_MAP
 
-  const weatherRepository = new WeatherRepository(apiUrl as string, apiKey as string)
+  const weatherRepositoryRef = useRef<WeatherRepository | null>(null);
+
+  if (!weatherRepositoryRef.current) {
+    weatherRepositoryRef.current = new WeatherRepository(apiUrl as string, apiKey as string);
+  }
+
   const [weather, setWeather] = useState<WeatherByCityType|null>(null)
   const [weatherCode, setWeatherCode] = useState<number>(0)
   const [weatherForecast, setWeatherForecast] = useState<WeatherForecast|null>(null)
@@ -23,6 +28,8 @@ function Dashboard() {
   const [currentCity, setCurrentCity] = useState<string>('london')
 
   const { t } = useTranslation();
+
+  const weatherRepository = weatherRepositoryRef.current;
 
   useEffect(() => {
     const defaultCityInformation = countries[currentCity]
@@ -78,7 +85,10 @@ function Dashboard() {
       const weekForecast = getNextDaysForecast(weatherForecast?.list)
       setWeekSummaryForecast(weekForecast)
     }
-  }, [currentCity])
+  }, [
+    weatherRepository,
+    weatherForecast,
+    currentCity])
 
   const handleChangeCity = (option: string) => {
     setCurrentCity(option)
