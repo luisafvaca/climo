@@ -140,7 +140,7 @@ function ContactForm () {
       validatePhoneNumber(e.target.value)
     }
 
-    if(e.target.id === 'dateBird') {
+    if(e.target.id === 'dateBirth') {
       validateDateField(e.target.value)
     }
   }
@@ -157,15 +157,21 @@ function ContactForm () {
   const fieldsData  = [
     { type: 'text', id: 'name', label: 'Nombre'},
     { type: 'email', id: 'email', label: 'Email' },
-    { type: 'date', id: 'dateBird', label: 'Fecha de nacimiento' },
+    { type: 'date', id: 'dateBirth', label: 'Fecha de nacimiento' },
     { type: 'text', id: 'city', label: 'Ciudad' },
     { type: 'number', id: 'phoneNumber', label: 'Telefono' }
   ]
 
   const fields = fieldsData.map((field) => {
     return (
-      <div className="flex flex-col justify-center pb-4 relative m-2" key={field.id}>
-        <label className='text-14 font-lato pb-10' htmlFor={field.id}>{field.label}</label>
+      <div 
+        className="flex flex-col justify-center pb-4 relative m-2" 
+        key={field.id}>
+        <label 
+          className='text-14 font-lato pb-10' 
+          htmlFor={field.id}>
+            {t(`${field.id}`)}
+          </label>
         <input
           className='border h-30 rounded-lg p-3'
           type={field.type} id={field.id}
@@ -183,7 +189,12 @@ function ContactForm () {
       <h1 className='font-openSans font-semibold text-center text-24 md:text-36 mt-20'>{t('contactClimo')}</h1>
       <form className='md:px-8 gap-4'>
         {fields}
-        <button className={`w-full bg-scarpa text-white block mt-16 text-12 h-30 border rounded-xl ${!isFormValid ? "pointer-events-none button-disabled" : "pointer-events-auto"}`} type='submit' disabled={isFormValid}>Enviar</button>
+        <button
+          className={`w-full bg-scarpa text-white block mt-16 text-12 h-30 border rounded-xl ${!isFormValid ? "pointer-events-none button-disabled" : "pointer-events-auto"}`}
+          type='submit'
+          disabled={isFormValid}>
+            {t('send')}
+        </button>
       </form>
     </div>
   );

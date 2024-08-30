@@ -1,3 +1,9 @@
 .sing-in-form {
     max-width: 27.3rem;
 }
+
+input.field-disabled {
+    background-color: #f0f0f0;
+    color: #b3b3b3;
+    cursor: not-allowed;
+}
