@@ -75,5 +75,11 @@
   "day6": "Saturday",
   "tomorrow": "Tomorrow",
   "now": "Now",
-  "weekForecast": "Week Forecast"
+  "weekForecast": "Week Forecast",
+  "contactClimo": "Contact Climo",
+  "namePlaceholder": "Type your name",
+  "emailPlaceholder": "Type your email",
+  "dateBitdPlaceholder": "Type your birthdate",
+  "cityPlaceholder": "Type your city",
+  "phoneNumberPlaceholder": "Type your phone number"
 }

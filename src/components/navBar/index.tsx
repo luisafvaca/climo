@@ -1,6 +1,8 @@
 import climLogo from '@/assets/climLogo.svg'
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
+import ContactForm from "../contactForm";
+
 import './index.css';
 
 function NavBar() {
@@ -38,24 +40,22 @@ function NavBar() {
           <h1 className='text-14 ml-3' onClick={toggleContactForm}>Contacto</h1>
         </div>
       </nav>
-      <section className={`contact-form-overlay w-full h-full flex items-center justify-center + ${isVisibleContactForm ? "hidden" : "block"}`}>
-          <div className="bg-white">
-            I will the form
-            <form>
-              <label htmlFor='name'>Nombre</label>
-              <input type='text' id='name' />
-              <label htmlFor='email'>Email</label>
-              <input type='email' id='email' />
-              <label htmlFor='dateBird'>Fecha de nacimiento</label>
-              <input type='date' id='dateBird' />
-              <label htmlFor='city'>Ciudad</label>
-              <input type='text' id='city' />
-              <label htmlFor='telefono'>Mensaje</label>
-              <input type='number' id='mensaje' />
-              <button>Enviar</button>
-            </form>
-          </div>
-
+      <section
+        className={
+          `contact-form-overlay
+          w-full
+          h-full
+          flex
+          items-center
+          justify-center +
+          ${isVisibleContactForm ? "hidden" : "block"}`
+        }>
+        <img
+          className="cursor-pointer top-20 right-6 absolute w-12 h-30 fill-white bg-white rounded-full"
+          src={'./public/crossIcon.svg'}
+          alt="close icon"
+          onClick={toggleContactForm}/>
+        <ContactForm/>
       </section>
     </>
   )

@@ -10,11 +10,11 @@ function SingIn() {
               <label className='text-14 font-lato'>
                 {t('email')}
               </label>
-              <input id="email" className='border' type="text"/>
+              <input id="email" className='border h-30 rounded-lg' type="text"/>
               <label className='text-14 font-lato mt-16'>
                 {t('password')}
               </label>
-              <input id="password" className='border' type="password" />
+              <input id="password" className='border h-30 rounded-lg' type="password" />
               <input className="bg-scarpa text-white block mt-16 text-12 h-30 border rounded-xl" type="submit" />
           </form>
           <p className='text-scarpa font-lato underline text-center text-12'>
