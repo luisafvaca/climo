@@ -26,7 +26,7 @@ function getNextDaysForecast(list: Array<List>) {
   });
 
   const temporal: {[key: string]: number}= {};
-  const filtered: Array<{[key: string]: any}> = [];
+  const filtered: Array<List> = [];
   nextDaysForecast.forEach((item) => {
     const date = new Date(item.dt_txt).getDate();
     if (!temporal[date]) {

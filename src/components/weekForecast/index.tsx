@@ -1,7 +1,9 @@
 import { useTranslation } from 'react-i18next';
+import type { WeekForecastProps } from './types';
+
 import './index.css';
 
-function WeekForecast({weekSummaryForecast}) {
+function WeekForecast({weekSummaryForecast}: WeekForecastProps) {
   const { t } = useTranslation();
 
   const dailySummaryForecast = weekSummaryForecast && weekSummaryForecast.map((item, index) => {
@@ -10,10 +12,15 @@ function WeekForecast({weekSummaryForecast}) {
     const tempMax = `${Math.trunc(item.main.temp_max)}º`;
     const day = index === 0 ? t(`tomorrow`) : t(`day${dayKey}`)
     return (
-      <div key={item.dt} className='week-forecast-content flex justify-between items-center p-3 border-b hover:bg-cyan-700 rounded-t-lg'>
+      <div
+        key={item.dt}
+        className='week-forecast-content flex justify-between items-center p-3 border-b hover:bg-cyan-700 rounded-t-lg'>
         <div className='flex items-center'>
           <p className='w-32 text-14'>{ day }</p>
-          <img className="h-40" src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`} alt="thuderstorm" />
+          <img
+            className="h-40"
+            src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
+            alt="thuderstorm" />
         </div>
         <p className='text-14'> {t('min')} <span>{tempMin}</span> ⎯ {t('max')} <span>{tempMax}</span></p>
       </div>

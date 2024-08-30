@@ -13,39 +13,50 @@ function Dashboard() {
   const apiKey = import.meta.env.VITE_API_KEY_WEATHER_MAP
   const apiUrl = import.meta.env.VITE_BASE_URL_WEATHER_MAP
 
-  const weatherRepository = new WeatherRepository(apiUrl as any, apiKey as any)
+  const weatherRepository = new WeatherRepository(apiUrl as string, apiKey as string)
   const [weather, setWeather] = useState<WeatherByCityType|null>(null)
   const [weatherCode, setWeatherCode] = useState<number>(0)
   const [weatherForecast, setWeatherForecast] = useState<WeatherForecast|null>(null)
-  const [dailySummaryForecast, setDailySummaryForecast] = useState<List|null>(null)
-  const [weekSummaryForecast, setWeekSummaryForecast] = useState<List|null>(null)
+  const [dailySummaryForecast, setDailySummaryForecast] = useState<List[]>([])
+  const [weekSummaryForecast, setWeekSummaryForecast] = useState<List[]>([])
   const [currentCity, setCurrentCity] = useState('london')
 
   const { t } = useTranslation();
 
   useEffect(() => {
+    const defaultCityInformation = countries[currentCity]
+    const lat = defaultCityInformation.lat
+    const long = defaultCityInformation.long
+  
     if (weather === null) {
-      weatherRepository.getWeatherByCity(1.287953, 103.851784).then((data) => {
+      weatherRepository.getWeatherByCity(lat, long).then((data) => {
         setWeather(data);
         setWeatherCode(data?.weather[0].id)
       });
     }
     if(weatherForecast === null) {
-      weatherRepository.getWeatherForecast(1.287953, 103.851784).then((data) => {
+      weatherRepository.getWeatherForecast(lat, long).then((data) => {
         setWeatherForecast(data);
       });
     }
   
-    if(weatherForecast && !dailySummaryForecast) {
+    if(weatherForecast && dailySummaryForecast.length <= 0) {
       const dailyForecast = getDayForecast(weatherForecast.list)
       setDailySummaryForecast(dailyForecast)
     }
 
-    if(weatherForecast && !weekSummaryForecast) {
+    if(weatherForecast && weekSummaryForecast.length <= 0) {
       const weekForecast = getNextDaysForecast(weatherForecast.list)
       setWeekSummaryForecast(weekForecast)
     }
-  }, [weather, weatherRepository]);
+  }, [
+    weather,
+    weatherRepository,
+    currentCity,
+    dailySummaryForecast.length,
+    weekSummaryForecast.length,
+    weatherForecast
+  ]);
 
   useEffect(() => {
     const currentCityInformation = countries[currentCity]
@@ -68,7 +79,7 @@ function Dashboard() {
     }
   }, [currentCity])
 
-  const handleChangeCity = (option) => {
+  const handleChangeCity = (option: string) => {
     setCurrentCity(option)
   }
 
