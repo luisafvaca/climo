@@ -1,4 +1,3 @@
-import climLogo from '@/assets/climLogo.svg'
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import ContactForm from "../contactForm";
@@ -23,7 +22,7 @@ function NavBar() {
     <>
       <nav className='flex justify-between h-32 m-24 gap-6'>
         <img 
-          src={climLogo}
+          src={'./public/climLogo.svg'}
           className="logo"
           alt="Vite logo" />
         <div className='flex items-center cursor-pointer gap-6'>

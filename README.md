@@ -1,78 +1,135 @@
 # Welcome to climo 🌦️
-The forecast overview app.
-Front End test code challenge.
+¡Overview daily and week weather, perfect for planning your day!
 
 # How to install
-Be sure that you have Node __v22.6.0__
+*__NOTE:__ Be sure that you have Node __v 22.6.0__ or higher
 
-### 1. Clone repo 
-`https://github.com/luisafvaca/climo`
+#### 1. Clone Repo
+☁️ [Climo](https://github.com/luisafvaca/climo) project ☁️ 
 
-### 2. Install dependencies using yarn
-`$ yarn install`
 
-### 3. Execute 
-`$ yarn dev`
+#### 2. Install dependencies using yarn
+```bash
+$ yarn install
+```
 
-### 4. Add the .env file
+#### 3. Execute 
+```bash
+$ yarn dev
+```
+
+#### 4. Add the .env file
 
 *__NOTE:__ Please use a 2.5 version of openweathermap API
 
 ```md
 VITE_API_KEY_WEATHER_MAP = {USE YOUR API KEY}
 VITE_BASE_URL_WEATHER_MAP = https://api.openweathermap.org/data/2.5
-api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
 ```
 
+## Project stack:
+#### Core Technologies using in this project
+
+1. __React (^18.3.1)__
+2. __React DOM (^18.3.1)__
+3. __React Router DOM__
+
+#### Build & Development
+1.  __Vite (^5.4.1)__
+2.  __TypeScript (^5.5.3)__
+
+#### Styling
+1.  __Tailwind CSS (^3.4.10)__
+2.  __PostCSS (^8.4.41) & Autoprefixer (^10.4.20)__ 
 
 
-# React + TypeScript + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🌳 Project tree:
 ```
+# climo
+├─ README.md
+├─ eslint.config.js
+├─ index.html
+├─ package.json
+├─ postcss.config.js
+├─ public
+│  ├─ crossIcon.svg
+│  ├─ dowmArrowIcon.svg
+│  ├─ locationIcon.svg
+│  ├─ statics
+│  │  ├─ 2xx.png
+│  │  ├─ 3xx.png
+│  │  ├─ 5xx.png
+│  │  ├─ 6xx.png
+│  │  ├─ 7xx.png
+│  │  ├─ 800.png
+│  │  ├─ 803.png
+│  │  ├─ 804.png
+│  │  ├─ 80x.png
+│  │  ├─ 90x.png
+│  │  └─ default.png
+│  ├─ translateIcon.svg
+│  └─ vite.svg
+├─ src
+│  ├─ App.css
+│  ├─ App.tsx
+│  ├─ assets
+│  │  ├─ climLogo.svg
+│  │  └─ translations.svg
+│  ├─ components
+│  │  ├─ contactForm
+│  │  │  ├─ index.css
+│  │  │  └─ index.tsx
+│  │  ├─ dayForecast
+│  │  │  ├─ index.css
+│  │  │  ├─ index.tsx
+│  │  │  └─ types.ts
+│  │  ├─ hero
+│  │  │  ├─ index.css
+│  │  │  ├─ index.tsx
+│  │  │  └─ types.ts
+│  │  ├─ navBar
+│  │  │  ├─ __tests__
+│  │  │  │  └─ index.spec.tsx
+│  │  │  ├─ index.css
+│  │  │  └─ index.tsx
+│  │  └─ weekForecast
+│  │     ├─ index.css
+│  │     ├─ index.tsx
+│  │     └─ types.ts
+│  ├─ i18n.js
+│  ├─ index.css
+│  ├─ main.tsx
+│  ├─ pages
+│  │  ├─ dashboard
+│  │  │  ├─ __tests__
+│  │  │  │  └─ index.spec.tsx
+│  │  │  ├─ index.css
+│  │  │  └─ index.tsx
+│  │  └─ signIn
+│  │     ├─ __tests__
+│  │     │  └─ index.spec.tsx
+│  │     ├─ index.css
+│  │     └─ index.tsx
+│  ├─ repositories
+│  │  └─ weatherRepository
+│  │     ├─ __tests__
+│  │     │  └─ index.spec.tsx
+│  │     ├─ index.ts
+│  │     └─ types.ts
+│  ├─ translations
+│  │  ├─ en.json
+│  │  └─ es.json
+│  ├─ utils
+│  │  ├─ countries.json
+│  │  ├─ forecast.tsx
+│  │  └─ resolveImage.tsx
+│  └─ vite-env.d.ts
+├─ tailwind.config.js
+├─ tsconfig.app.json
+├─ tsconfig.json
+├─ tsconfig.node.json
+├─ vite.config.ts
+├─ vitest.config.ts
+└─ yarn.lock
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
