@@ -5,6 +5,7 @@
 	"emailDisclaimer": "Escribe tu correo",
 	"password": "Contraseña",
 	"passwordDisclaimer": "Escribe tu contraseña",
+	"signIn": "Iniciar sesión",
 	"createAccountDisclaimer": "O crea una cuenta",
 	"max": "Máxima:",
 	"min": "Mínima:",
@@ -81,5 +82,10 @@
 	"emailPlaceholder": "Escribe tu correo",
 	"dateBitdPlaceholder": "Escribe tu fecha de nacimiento",
 	"cityPlaceholder": "Escribe tu ciudad",
-	"phoneNumberPlaceholder": "Escribe tu número de teléfono"
+	"phoneNumberPlaceholder": "Escribe tu número de teléfono",
+	"send": "Enviar",
+	"name": "Nombre",
+	"dateBirth": "Fecha de nacimiento",
+	"city": "Ciudad",
+	"phoneNumber": "Número de teléfono"
 }

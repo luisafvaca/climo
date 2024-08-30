@@ -5,6 +5,7 @@
   "emailDisclaimer": "Type your email",
   "password": "Password",
   "passwordDisclaimer": "Type your password",
+  "signIn": "Sign In",
   "createAccountDisclaimer": "Or create an account",
   "max": "Max:",
   "min": "Min:",
@@ -81,5 +82,10 @@
   "emailPlaceholder": "Type your email",
   "dateBitdPlaceholder": "Type your birthdate",
   "cityPlaceholder": "Type your city",
-  "phoneNumberPlaceholder": "Type your phone number"
+  "phoneNumberPlaceholder": "Type your phone number",
+  "send": "Send",
+  "name": "Name",
+  "dateBirth": "Birthdate",
+  "city": "City",
+  "phoneNumber": "Phone number"
 }
