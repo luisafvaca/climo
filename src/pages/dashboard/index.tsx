@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import WeatherRepository from '../../repositories/weatherRepository';
 import type { WeatherByCityType,  WeatherForecast, List } from '../../repositories/weatherRepository/types';
 import Hero from '../../components/hero';
+import NavBar from '../../components/navBar';
 import DayForecast from '../..//components/dayForecast';
 import WeekForecast from '../../components/weekForecast';
 import resolveImage from '../../utils/resolveImage';
@@ -19,7 +20,7 @@ function Dashboard() {
   const [weatherForecast, setWeatherForecast] = useState<WeatherForecast|null>(null)
   const [dailySummaryForecast, setDailySummaryForecast] = useState<List[]>([])
   const [weekSummaryForecast, setWeekSummaryForecast] = useState<List[]>([])
-  const [currentCity, setCurrentCity] = useState('london')
+  const [currentCity, setCurrentCity] = useState<string>('london')
 
   const { t } = useTranslation();
 
@@ -86,24 +87,27 @@ function Dashboard() {
   const image = resolveImage(weatherCode)
 
   return (
-    <div className='m-24 lg:flex lg: gap-9'>
-      {weather && (
-        <Hero
-          temperature={`${Math.trunc(weather.main.temp)}º`}
-          weatherDescription={t(`${weatherCode}`)}
-          minTemperature={`${Math.trunc(weather.main.temp_min)}º`}
-          maxTemperature={`${Math.trunc(weather.main.temp_max)}º`}
-          image={image}
-          currentCity={currentCity}
-          icon={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
-          onChangeCity={handleChangeCity}
-        />
-      )}
-      <div className='lg:w-3/6'>
-        <DayForecast dailySummaryForecast={dailySummaryForecast}/>
-        <WeekForecast weekSummaryForecast={weekSummaryForecast}/>
+    <>
+      <NavBar />
+      <div className='m-24 lg:flex lg: gap-9'>
+        {weather && (
+          <Hero
+            temperature={`${Math.trunc(weather.main.temp)}º`}
+            weatherDescription={t(`${weatherCode}`)}
+            minTemperature={`${Math.trunc(weather.main.temp_min)}º`}
+            maxTemperature={`${Math.trunc(weather.main.temp_max)}º`}
+            image={image}
+            currentCity={currentCity}
+            icon={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+            onChangeCity={handleChangeCity}
+          />
+        )}
+        <div className='lg:w-3/6'>
+          <DayForecast dailySummaryForecast={dailySummaryForecast}/>
+          <WeekForecast weekSummaryForecast={weekSummaryForecast}/>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
