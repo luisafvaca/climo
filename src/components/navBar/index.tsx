@@ -21,12 +21,12 @@ function NavBar() {
   
   return (
     <>
-      <nav className='flex justify-between h-32 m-24'>
+      <nav className='flex justify-between h-32 m-24 gap-6'>
         <img 
           src={climLogo}
           className="logo"
           alt="Vite logo" />
-        <div className='flex items-center cursor-pointer'>
+        <div className='flex items-center cursor-pointer gap-6'>
           <div
             className='flex gap-2 items-center cursor-pointer'
             onClick={changeLanguage}
@@ -37,7 +37,7 @@ function NavBar() {
               src={'./public/translateIcon.svg'}
               alt="translation icon" />
           </div>
-          <h1 className='text-14 ml-3' onClick={toggleContactForm}>Contacto</h1>
+          <p className='text-14 ml-3' onClick={toggleContactForm}>Contacto</p>
         </div>
       </nav>
       <section
