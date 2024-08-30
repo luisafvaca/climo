@@ -8,7 +8,7 @@ function ContactForm () {
   const [formData, setFormData] = useState<{ [key: string]: string }>({
     name: '',
     email: '',
-    dateBird: '',
+    dateBirth: '',
     city: '',
     phoneNumber: ''
   });
@@ -16,7 +16,7 @@ function ContactForm () {
   const [formErrors, setFormErrors] = useState<{ [key: string]: string }>({
     name: '',
     email: '',
-    dateBird: '',
+    dateBirth: '',
     city: '',
     phoneNumber: ''
   });
@@ -50,7 +50,7 @@ function ContactForm () {
     if(value === '') {
       setFormErrors({
         ...formErrors,
-        dateBird: 'This field must have a valid date'
+        dateBirth: 'This field must have a valid date'
       })
 
       setIsFormValid(false)
@@ -59,7 +59,7 @@ function ContactForm () {
     if(value !== '') {
       setFormErrors({
         ...formErrors,
-        dateBird: ''
+        dateBirth: ''
       })
     }
   }
@@ -127,7 +127,6 @@ function ContactForm () {
   };
 
   const handleBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.id)
     if(e.target.id === 'name' || e.target.id === 'city') {
       validateTextFields(e.target.id, e.target.value);
     }
