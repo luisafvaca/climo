@@ -19,6 +19,7 @@ function Dashboard() {
   if (!weatherRepositoryRef.current) {
     weatherRepositoryRef.current = new WeatherRepository(apiUrl as string, apiKey as string);
   }
+  const weatherRepository: WeatherRepository = new WeatherRepository(apiUrl as string, apiKey as string)
 
   const [weather, setWeather] = useState<WeatherByCityType|null>(null)
   const [weatherCode, setWeatherCode] = useState<number>(0)
@@ -28,8 +29,6 @@ function Dashboard() {
   const [currentCity, setCurrentCity] = useState<string>('london')
 
   const { t } = useTranslation();
-
-  const weatherRepository = weatherRepositoryRef.current;
 
   useEffect(() => {
     const defaultCityInformation = countries[currentCity]
@@ -59,7 +58,6 @@ function Dashboard() {
     }
   }, [
     weather,
-    weatherRepository,
     currentCity,
     dailySummaryForecast.length,
     weekSummaryForecast.length,
@@ -86,7 +84,6 @@ function Dashboard() {
       setWeekSummaryForecast(weekForecast)
     }
   }, [
-    weatherRepository,
     weatherForecast,
     currentCity])
 
