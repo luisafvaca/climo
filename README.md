@@ -1,3 +1,31 @@
+# Welcome to climo 🌦️
+The forecast overview app.
+Front End test code challenge.
+
+# How to install
+Be sure that you have Node __v22.6.0__
+
+### 1. Clone repo 
+`https://github.com/luisafvaca/climo`
+
+### 2. Install dependencies using yarn
+`$ yarn install`
+
+### 3. Execute 
+`$ yarn dev`
+
+### 4. Add the .env file
+
+*__NOTE:__ Please use a 2.5 version of openweathermap API
+
+```md
+VITE_API_KEY_WEATHER_MAP = {USE YOUR API KEY}
+VITE_BASE_URL_WEATHER_MAP = https://api.openweathermap.org/data/2.5
+api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
+```
+
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
