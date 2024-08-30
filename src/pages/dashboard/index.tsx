@@ -19,7 +19,8 @@ function Dashboard() {
   if (!weatherRepositoryRef.current) {
     weatherRepositoryRef.current = new WeatherRepository(apiUrl as string, apiKey as string);
   }
-  const weatherRepository: WeatherRepository = new WeatherRepository(apiUrl as string, apiKey as string)
+
+  const weatherRepository = weatherRepositoryRef.current; 
 
   const [weather, setWeather] = useState<WeatherByCityType|null>(null)
   const [weatherCode, setWeatherCode] = useState<number>(0)
@@ -84,7 +85,6 @@ function Dashboard() {
       setWeekSummaryForecast(weekForecast)
     }
   }, [
-    weatherForecast,
     currentCity])
 
   const handleChangeCity = (option: string) => {
