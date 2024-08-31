@@ -28,7 +28,9 @@ export default defineConfig({
         '**/vite.config.ts',
         '**/eslint.config.js',
         '**/vitest.config.ts',
-        'src/vite-env.d.ts'
+        'src/vite-env.d.ts',
+        'src/pages/signIn/__tests__/index.spec.tsx',
+        'types.ts'
     ],
   },
   resolve: {

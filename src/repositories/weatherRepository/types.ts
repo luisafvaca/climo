@@ -94,7 +94,7 @@ export interface List {
   visibility: number;
   pop:        number;
   sys:        Sys;
-  dt_txt:     Date;
+  dt_txt:     string;
   rain?:      Rain;
 }
 

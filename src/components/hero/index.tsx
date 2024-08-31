@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import type { HeroProps } from './types';
 import countries from '../../utils/countries.json';
 import './index.css';
+
 function Hero (
     {
       icon,
@@ -24,7 +25,8 @@ function Hero (
 
       return (
         <div key={country} className="country-option text-14" lat={lat} long={long}>
-          <input 
+          <input
+            role="radio"
             type="radio" 
             name="city" id={country}
             className='hidden'

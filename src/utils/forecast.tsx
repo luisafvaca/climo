@@ -1,11 +1,11 @@
 import type { List } from '../repositories/weatherRepository/types';
 
-function formatDate(timestamp: Date) {
+function formatDate(timestamp: number) {
   const date: Date = new Date(timestamp* 1000);
   return date.toISOString().split('T')[0];
 }
 
-function getHour(timestamp: Date) {
+function getHour(timestamp: number) {
   const date: Date = new Date(timestamp * 1000);
   return date.getHours();
 }
