@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next';
 import WeatherRepository from '../../repositories/weatherRepository';
-import type { WeatherByCityType,  WeatherForecast, List } from '../../repositories/weatherRepository/types';
+import type { WeatherByCityType, List } from '../../repositories/weatherRepository/types';
 import Hero from '../../components/hero';
 import NavBar from '../../components/navBar';
 import DayForecast from '../..//components/dayForecast';
@@ -24,68 +24,37 @@ function Dashboard() {
 
   const [weather, setWeather] = useState<WeatherByCityType|null>(null)
   const [weatherCode, setWeatherCode] = useState<number>(0)
-  const [weatherForecast, setWeatherForecast] = useState<WeatherForecast|null>(null)
   const [dailySummaryForecast, setDailySummaryForecast] = useState<List[]>([])
   const [weekSummaryForecast, setWeekSummaryForecast] = useState<List[]>([])
   const [currentCity, setCurrentCity] = useState<string>('london')
 
   const { t } = useTranslation();
 
-  useEffect(() => {
-    const defaultCityInformation = countries[currentCity]
-    const lat = defaultCityInformation.lat
-    const long = defaultCityInformation.long
-  
-    if (weather === null) {
-      weatherRepository.getWeatherByCity(lat, long).then((data) => {
-        setWeather(data);
-        setWeatherCode(data?.weather[0].id)
-      });
-    }
-    if(weatherForecast === null) {
-      weatherRepository.getWeatherForecast(lat, long).then((data) => {
-        setWeatherForecast(data);
-      });
-    }
-  
-    if(weatherForecast && dailySummaryForecast.length <= 0) {
-      const dailyForecast = getDayForecast(weatherForecast.list)
+  const fetchData = async (lat: number, long: number) => {
+    try {
+      const weatherData = await weatherRepository.getWeatherByCity(lat, long)
+      const weatherForecastData = await weatherRepository.getWeatherForecast(lat, long)
+      setWeather(weatherData)
+      setWeatherCode(weatherData?.weather[0].id)
+ 
+      const dailyForecast = await getDayForecast(weatherForecastData?.list)
       setDailySummaryForecast(dailyForecast)
-    }
 
-    if(weatherForecast && weekSummaryForecast.length <= 0) {
-      const weekForecast = getNextDaysForecast(weatherForecast.list)
+      const weekForecast = await getNextDaysForecast(weatherForecastData.list)
       setWeekSummaryForecast(weekForecast)
+
+    } catch (error) {
+      console.error(error)
     }
-  }, [
-    weather,
-    currentCity,
-    dailySummaryForecast.length,
-    weekSummaryForecast.length,
-    weatherForecast
-  ]);
+  }
 
   useEffect(() => {
     const currentCityInformation = countries[currentCity]
     const lat = currentCityInformation.lat
     const long = currentCityInformation.long
-    weatherRepository.getWeatherByCity(lat, long).then((data) => {
-      setWeather(data);
-      setWeatherCode(data?.weather[0].id)
-    });
-
-    weatherRepository.getWeatherForecast(lat, long).then((data) => {
-      setWeatherForecast(data);
-    });
-
-    if(weatherForecast) {
-      const dailyForecast = getDayForecast(weatherForecast?.list)
-      setDailySummaryForecast(dailyForecast)
-      const weekForecast = getNextDaysForecast(weatherForecast?.list)
-      setWeekSummaryForecast(weekForecast)
-    }
-  }, [
-    currentCity])
+    
+    fetchData(lat, long)
+  }, [currentCity])
 
   const handleChangeCity = (option: string) => {
     setCurrentCity(option)

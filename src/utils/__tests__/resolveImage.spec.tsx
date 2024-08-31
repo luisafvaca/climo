@@ -1,4 +1,4 @@
-import { vi, expect, describe, it } from 'vitest';
+import { expect, describe, it } from 'vitest';
 import resolveImage from '../resolveImage';
 
 describe('resolveImage', () => {
