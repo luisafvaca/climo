@@ -7,7 +7,11 @@ vi.mock('react-i18next', () => ({
     useTranslation: () => ({
         t: (key: string) => key,
     }),
-    useNavigate: () => vi.fn(),
+    useNavigate: vi.fn(),
+}));
+
+vi.mock('react-router-dom', () => ({
+    useNavigate: vi.fn(),
 }));
 
 describe('SingIn', () => {

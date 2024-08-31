@@ -27,6 +27,7 @@ function NavBar() {
           alt="Vite logo" />
         <div className='flex items-center cursor-pointer gap-6'>
           <div
+            role="change-language"
             className='flex gap-2 items-center cursor-pointer'
             onClick={changeLanguage}
             >
