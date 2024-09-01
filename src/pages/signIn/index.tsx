@@ -63,6 +63,7 @@ function SingIn() {
           {field.label}
         </label>
         <input
+          role={field.id}
           id={field.id}
           className='border h-30 rounded-lg p-3'
           type={field.type}
@@ -80,6 +81,7 @@ function SingIn() {
           <form className='flex flex-col justify-center  gap-4'>
             {fields}  
             <input
+              role='submit'
               className={`bg-scarpa text-white block mt-16 text-12 h-30 border rounded-xl ${!isFormValid ? "pointer-events-none field-disabled" : "pointer-events-auto"}`}
               type="submit"
               value={t('signIn')}

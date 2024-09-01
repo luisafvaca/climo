@@ -10,6 +10,7 @@ function NavBar() {
   const [ isVisibleContactForm, setIsVisibleContactForm ] = useState(true);
   
   const changeLanguage = () => {
+    console.log('entrando')
     const newLanguage = i18n.language === 'en' ? 'es' : 'en';
     i18n.changeLanguage(newLanguage);
     setCurrentLanguage(newLanguage)
