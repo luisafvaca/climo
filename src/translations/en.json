@@ -87,5 +87,7 @@
   "name": "Name",
   "dateBirth": "Birthdate",
   "city": "City",
-  "phoneNumber": "Phone number"
+  "phoneNumber": "Phone number",
+  "contact": "Contact Us",
+  "logOut": "Log Out"
 }

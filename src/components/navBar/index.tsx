@@ -7,7 +7,7 @@ import { useAuth } from "../../auth/authProvider";
 import './index.scss';
 
 function NavBar() {
-  const { i18n } = useTranslation();
+  const { i18n, t} = useTranslation();
   const [ currentLanguage, setCurrentLanguage ] = useState('en');
   const [ isVisibleContactForm, setIsVisibleContactForm ] = useState(true);
   const { isAuthenticated } = useAuth();
@@ -48,9 +48,9 @@ function NavBar() {
               src={'./public/translateIcon.svg'}
               alt="translation icon" />
           </div>
-          <p className='text-14 ml-3' onClick={toggleContactForm}>Contacto</p>
+          <p className='text-14 ml-3' onClick={toggleContactForm}>{t('contact')}</p>
           
-          {isAuthenticated && <p className='text-14 ml-3' onClick={handleLogOut}>Log Out</p>}
+          {isAuthenticated && <p className='text-14 ml-3' onClick={handleLogOut}>{t('logOut')}</p>}
         </div>
       </nav>
       <section
