@@ -14,6 +14,16 @@ vi.mock('react-i18next', () => ({
   })),
 }));
 
+vi.mock('react-router-dom', () => ({
+  useNavigate: vi.fn().mockReturnValue(vi.fn()),
+}));
+
+vi.mock('../../auth/authProvider', () => ({
+  useAuth: () => ({
+    isAuthenticated: true,
+  }),
+}));
+
 describe('NavBar', () => {
   it('should render NavBar component', () => {
     render(<NavBar/>);

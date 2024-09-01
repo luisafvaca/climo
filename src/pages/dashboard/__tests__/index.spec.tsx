@@ -43,6 +43,10 @@ vi.mock('../../../repositories/weatherRepository', () => ({
   },
 }));
 
+vi.mock('react-router-dom', () => ({
+  useNavigate: vi.fn().mockReturnValue(vi.fn()),
+}));
+
 describe('Dashboard', () => {
   it('should render Dashboard component', async () => {
     await act( async () => render(<Dashboard/>));

@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { useAuth } from '../../auth/authProvider';
 
 import NavBar from '../../components/navBar';
 
@@ -10,15 +9,11 @@ import './index.scss'
 function SingIn() {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const isAuth = useAuth()
-
-  if(isAuth.isAuthenticaded) {
-    return navigate('/dashboard', { replace: true });
-  }
 
   const handleNavigateToDashboard = () => {
-    navigate('/dashboard', { replace: true });
+    localStorage.setItem('isAuthenticated', 'true')
   }
+
   const [formData, setFormData] = useState<{ [key: string]: string }>({
     email: '',
     password: ''
@@ -44,6 +39,11 @@ function SingIn() {
       setIsFormValid(true)
     }
   }, [formData.email, formData.password])
+
+  useEffect(() => {
+    const isAuth = localStorage.getItem('isAuthenticated');
+    navigate(isAuth ? '/dashboard' : '/')
+  }, [navigate])
   
   const fieldsData = [
     {
