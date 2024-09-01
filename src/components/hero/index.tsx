@@ -47,7 +47,7 @@ function Hero (
     })
     return (
       <section 
-        className="hero w-full flex flex-col items-center font-sans p-22 bg-cover bg-center bg-no-repeat relative rounded-lg justify-center lg:w-3/6"
+        className="hero w-full flex flex-col items-center font-sans p-22 bg-cover bg-center bg-no-repeat relative rounded-lg justify-center h-full"
         style={{ backgroundImage: `url(/public/statics/${image})`}}>
         <div className='absolute flex flex-row left-9 top-4 px-16'>
           { countriesSelector}
