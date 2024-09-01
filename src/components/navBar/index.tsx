@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import ContactForm from "../contactForm";
 
-import './index.css';
+import './index.scss';
 
 function NavBar() {
   const { i18n } = useTranslation();
@@ -21,7 +21,7 @@ function NavBar() {
   
   return (
     <>
-      <nav className='flex justify-between h-32 m-24 gap-6'>
+      <nav className='nav-bar flex justify-between h-32 m-24 gap-6'>
         <img 
           src={'./public/climLogo.svg'}
           className="logo"

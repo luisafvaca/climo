@@ -1,0 +1,8 @@
+/* Change the label style when the radio button is checked */
+.hero {
+  input[type="radio"]:checked + label {
+    background-color: rgb(201 201 201 / 22%);
+    color: white;
+  }
+}
+

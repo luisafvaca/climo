@@ -1,6 +1,6 @@
 import  { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import './index.css';
+import './index.scss';
 
 function ContactForm () {
   const { t } = useTranslation();
@@ -184,7 +184,7 @@ function ContactForm () {
   })
 
   return (
-    <div className="bg-white rounded-lg w-full h-full md:w-[500px] md:h-auto p-24">
+    <div className="contact-form bg-white rounded-lg w-full h-full md:w-[500px] md:h-auto p-24">
       <h1 className='font-openSans font-semibold text-center text-24 md:text-36 mt-20'>{t('contactClimo')}</h1>
       <form className='md:px-8 gap-4'>
         {fields}

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 import NavBar from '../../components/navBar';
 
-import './index.css'
+import './index.scss'
 
 function SingIn() {
   const { t } = useTranslation();
