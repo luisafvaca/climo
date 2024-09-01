@@ -66,6 +66,7 @@ function Dashboard() {
     <>
       <NavBar />
       <div className='m-24 lg:flex lg: gap-9'>
+        <div className='w-full lg:w-3/6'>
         {weather && (
           <Hero
             temperature={`${Math.trunc(weather.main.temp)}º`}
@@ -78,6 +79,8 @@ function Dashboard() {
             onChangeCity={handleChangeCity}
           />
         )}
+        </div>
+
         <div className='lg:w-3/6'>
           <DayForecast dailySummaryForecast={dailySummaryForecast}/>
           <WeekForecast weekSummaryForecast={weekSummaryForecast}/>
