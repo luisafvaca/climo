@@ -87,5 +87,7 @@
 	"name": "Nombre",
 	"dateBirth": "Fecha de nacimiento",
 	"city": "Ciudad",
-	"phoneNumber": "Número de teléfono"
+	"phoneNumber": "Número de teléfono",
+  "contact": "Contactanos",
+	"logOut": "Cerrar sesión"
 }

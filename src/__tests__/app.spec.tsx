@@ -8,6 +8,10 @@ vi.mock('react-i18next', () => ({
   }),
 }));
 
+vi.mock('react-router-dom', () => ({
+  useNavigate: vi.fn().mockReturnValue(vi.fn()),
+}));
+
 describe('App', () => {
     it('should render App component', async () => {
       render(<App />);

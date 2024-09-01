@@ -11,8 +11,9 @@ function SingIn() {
   const navigate = useNavigate();
 
   const handleNavigateToDashboard = () => {
-    navigate('/dashboard', { replace: true });
+    localStorage.setItem('isAuthenticated', 'true')
   }
+
   const [formData, setFormData] = useState<{ [key: string]: string }>({
     email: '',
     password: ''
@@ -38,6 +39,11 @@ function SingIn() {
       setIsFormValid(true)
     }
   }, [formData.email, formData.password])
+
+  useEffect(() => {
+    const isAuth = localStorage.getItem('isAuthenticated');
+    navigate(isAuth ? '/dashboard' : '/')
+  }, [navigate])
   
   const fieldsData = [
     {

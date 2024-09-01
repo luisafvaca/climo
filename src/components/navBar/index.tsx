@@ -1,16 +1,18 @@
 import { useTranslation } from "react-i18next";
+import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import ContactForm from "../contactForm";
+import { useAuth } from "../../auth/authProvider";
 
 import './index.scss';
 
 function NavBar() {
-  const { i18n } = useTranslation();
+  const { i18n, t} = useTranslation();
   const [ currentLanguage, setCurrentLanguage ] = useState('en');
   const [ isVisibleContactForm, setIsVisibleContactForm ] = useState(true);
-  
+  const { isAuthenticated } = useAuth();
+
   const changeLanguage = () => {
-    console.log('entrando')
     const newLanguage = i18n.language === 'en' ? 'es' : 'en';
     i18n.changeLanguage(newLanguage);
     setCurrentLanguage(newLanguage)
@@ -18,6 +20,13 @@ function NavBar() {
 
   const toggleContactForm = () => {
     setIsVisibleContactForm(!isVisibleContactForm);
+  }
+
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    localStorage.removeItem('isAuthenticated');
+    return navigate('/', { replace: true });
   }
   
   return (
@@ -39,7 +48,9 @@ function NavBar() {
               src={'./public/translateIcon.svg'}
               alt="translation icon" />
           </div>
-          <p className='text-14 ml-3' onClick={toggleContactForm}>Contacto</p>
+          <p className='text-14 ml-3' onClick={toggleContactForm}>{t('contact')}</p>
+          
+          {isAuthenticated && <p className='text-14 ml-3' onClick={handleLogOut}>{t('logOut')}</p>}
         </div>
       </nav>
       <section
