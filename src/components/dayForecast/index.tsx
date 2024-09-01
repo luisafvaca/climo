@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import type { DayForecastProps } from './types';
-import './index.css';
+import './index.scss';
 
 function DayForecast({dailySummaryForecast}: DayForecastProps) {
   const { t } = useTranslation();

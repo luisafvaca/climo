@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import type { HeroProps } from './types';
 import countries from '../../utils/countries.json';
-import './index.css';
+import './index.scss';
 
 function Hero (
     {

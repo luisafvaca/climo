@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import type { WeekForecastProps } from './types';
 
-import './index.css';
+import './index.scss';
 
 function WeekForecast({weekSummaryForecast}: WeekForecastProps) {
   const { t } = useTranslation();
