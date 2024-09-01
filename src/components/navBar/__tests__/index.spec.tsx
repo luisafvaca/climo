@@ -6,10 +6,12 @@ import userEvent from '@testing-library/user-event'
 const changeLanguage = vi.fn();
 
 vi.mock('react-i18next', () => ({
-  useTranslation: () => ({
+  useTranslation: vi.fn().mockImplementation(() => ({ 
     t: (key: string) => key,
-    changeLanguage: () => changeLanguage(),
-  }),
+    i18n: {
+      changeLanguage,
+    }, 
+  })),
 }));
 
 describe('NavBar', () => {
@@ -20,6 +22,6 @@ describe('NavBar', () => {
   it('should change language', () => {
     render(<NavBar/>);
     const element = screen.getByRole('change-language');
-    userEvent.click(element);
+    userEvent.dblClick(element);
   })
 })

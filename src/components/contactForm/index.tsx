@@ -172,8 +172,10 @@ function ContactForm () {
             {t(`${field.id}`)}
           </label>
         <input
+          role={`contactForm-${field.id}`}
           className='border h-30 rounded-lg p-3'
-          type={field.type} id={field.id}
+          type={field.type} 
+          id={field.id}
           value={formData[field.id]}
           placeholder={t(`${field.id}Placeholder`)}
           onChange={handleChange}

@@ -44,7 +44,21 @@ vi.mock('../../../repositories/weatherRepository', () => ({
 }));
 
 describe('Dashboard', () => {
-    it('should render Dashboard component', async () => {
-      await act( async () => render(<Dashboard/>));
-    });
+  it('should render Dashboard component', async () => {
+    await act( async () => render(<Dashboard/>));
+  });
+
+  it('should catch error', async () => {
+    vi.mock('../../../repositories/weatherRepository', () => ({
+      default: class {
+        async getWeatherByCity() {
+          throw new Error('Error');
+        }
+        async getWeatherForecast() {
+          throw new Error('Error');
+        }
+      },
+    }));
+    await act( async () => render(<Dashboard/>));
+  });
 });
