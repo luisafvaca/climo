@@ -19,6 +19,64 @@ function SingIn() {
     password: ''
   })
 
+  const [formErrors, setFormErrors] = useState<{ [key: string]: string }>({
+    email: '',
+    password: ''
+  });
+
+
+  const validateTextFields = (field: string,value: string) => {
+    if (value === '') {
+      setFormErrors({
+        ...formErrors,
+        [field]: 'This field is required'
+      })
+      setIsFormValid(false)
+    }
+    if(value.length <= 3) {
+      setFormErrors({
+        ...formErrors,
+        [field]: 'This field must have more than 3 characters'
+      })
+      setIsFormValid(false)
+    }
+
+    if( value.length > 3) { 
+      setFormErrors({
+        ...formErrors,
+        [field]: ''
+      })
+    }
+  }
+
+  const validateEmail = (value: string) => {
+    /* eslint-disable-next-line */
+    const regularExpresionForEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+    if(value === '') {
+      setFormErrors({
+        ...formErrors,
+        email: 'This field is required'
+      })
+      setIsFormValid(false)
+    }
+    
+    if(!value.match(regularExpresionForEmail)) {
+      setFormErrors({
+        ...formErrors,
+        email: 'This field must have a valid email'
+      })
+      setIsFormValid(false)
+    }
+
+    if(value.match(regularExpresionForEmail) && value !== '') {
+      setFormErrors({
+        ...formErrors,
+        email: ''
+      })
+    }
+  }
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
@@ -27,8 +85,12 @@ function SingIn() {
   }
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    if (e.target.value === '') {
-      setIsFormValid(false)
+    if(e.target.id === 'email') {
+      validateEmail(e.target.value)
+    }
+
+    if(e.target.id === 'password') {
+      validateTextFields(e.target.id, e.target.value);
     }
   }
 
@@ -61,7 +123,7 @@ function SingIn() {
   const fields = fieldsData.map((field) => {
     return (
       <div 
-        className='flex flex-col justify-center'
+        className='flex flex-col justify-center relative'
         key={field.id}>
         <label
           className='text-14 font-lato'
@@ -71,10 +133,11 @@ function SingIn() {
         <input
           role={field.id}
           id={field.id}
-          className='border h-30 rounded-lg p-3'
+          className='border h-30 rounded-lg p-3 mb-10'
           type={field.type}
           onChange={handleChange}
           onBlur={handleBlur}/>
+          <span className='text-rose-500 absolute bottom-[-5px]'>{formErrors[field.id]}</span>
       </div>
     )
   })

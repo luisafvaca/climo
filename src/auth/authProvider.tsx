@@ -1,11 +1,12 @@
 import { useContext, useState, createContext } from "react";
+import { AuthProviderProps, AuthContextType } from "./types";
 
-const authContext = createContext<any>({
-  isAuthenticated: false,
-})
+const authContext = createContext<AuthContextType>({
+  isAuthenticated: false
+});
 
-function AuthProvider({children}: any) {
-  const [isAuthenticated, setIsAuthenticated] = useState( () => {
+function AuthProvider({children}: AuthProviderProps) {
+  const [isAuthenticated, _] = useState( () => {
     if(localStorage.getItem('isAuthenticated') === 'true') {
       return true;
     }
@@ -13,7 +14,7 @@ function AuthProvider({children}: any) {
   });
 
   return (
-    <authContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
+    <authContext.Provider value={{ isAuthenticated }}>
       { children}
     </authContext.Provider>
     )
