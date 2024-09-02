@@ -1,7 +1,6 @@
 import {describe, it, vi } from 'vitest';
 import { render, screen} from '@testing-library/react';
 import NavBar from '../index';
-import userEvent from '@testing-library/user-event'
 
 const changeLanguage = vi.fn();
 
@@ -10,6 +9,7 @@ vi.mock('react-i18next', () => ({
     t: (key: string) => key,
     i18n: {
       changeLanguage,
+      language: 'en',
     }, 
   })),
 }));
@@ -32,6 +32,12 @@ describe('NavBar', () => {
   it('should change language', () => {
     render(<NavBar/>);
     const element = screen.getByRole('change-language');
-    userEvent.dblClick(element);
+    element.click();
+  })
+
+  it('should togle contact form', () => {
+    render(<NavBar/>);
+    const element = screen.getByRole('close-contact-form');
+    element.click();
   })
 })

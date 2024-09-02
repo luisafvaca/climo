@@ -50,7 +50,7 @@ function NavBar() {
           </div>
           <p className='text-14 ml-3' onClick={toggleContactForm}>{t('contact')}</p>
           
-          {isAuthenticated && <p className='text-14 ml-3' onClick={handleLogOut}>{t('logOut')}</p>}
+          {isAuthenticated && <p role="log-out" className='text-14 ml-3' onClick={handleLogOut}>{t('logOut')}</p>}
         </div>
       </nav>
       <section
@@ -64,6 +64,7 @@ function NavBar() {
           ${isVisibleContactForm ? "hidden" : "block"}`
         }>
         <img
+          role="close-contact-form"
           className="cursor-pointer top-20 right-6 absolute w-12 h-30 fill-white bg-white rounded-full"
           src={'./public/crossIcon.svg'}
           alt="close icon"
