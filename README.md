@@ -6,7 +6,8 @@
 *__NOTE:__ Be sure that you have Node __v 22.6.0__ or higher
 
 #### 1. Clone Repo
-☁️ [Climo](https://github.com/luisafvaca/climo) project ☁️ 
+☁️ [HHTPS](https://github.com/luisafvaca/climo.git)
+☁️ [SSH](git@github.com:luisafvaca/climo.git)
 
 
 #### 2. Install dependencies using yarn
