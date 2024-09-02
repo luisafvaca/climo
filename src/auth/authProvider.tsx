@@ -6,7 +6,7 @@ const authContext = createContext<AuthContextType>({
 });
 
 function AuthProvider({children}: AuthProviderProps) {
-  const [isAuthenticated, _] = useState( () => {
+  const [isAuthenticated] = useState( () => {
     if(localStorage.getItem('isAuthenticated') === 'true') {
       return true;
     }

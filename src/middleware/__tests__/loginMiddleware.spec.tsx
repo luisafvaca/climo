@@ -1,4 +1,4 @@
-import { describe, expect, it, vi} from 'vitest';
+import { describe, it, vi} from 'vitest';
 import { render } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import LoginMiddleware from '../loginMiddleware';
@@ -10,7 +10,7 @@ vi.mock('../auth/authProvider', () => ({
 
 describe('LoginMiddleware', () => {
   it('should navigate to "/" if not authenticated', () => {
-    (useAuth as any).mockReturnValue({ isAuthenticated: false });
+    (useAuth).mockReturnValue({ isAuthenticated: false });
 
     render(
       <MemoryRouter initialEntries={['/protected']}>
@@ -25,7 +25,7 @@ describe('LoginMiddleware', () => {
   });
 
   it('should render the Outlet component if authenticated', () => {
-    (useAuth as any).mockReturnValue({ isAuthenticated: true });
+    (useAuth).mockReturnValue({ isAuthenticated: true });
 
     render(
       <MemoryRouter initialEntries={['/protected']}>
